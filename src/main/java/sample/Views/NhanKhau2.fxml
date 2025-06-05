@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.sample.Controller.NhanKhauController2">
+
+    <!-- Top: Navigation -->
+    <top>
+        <HBox spacing="20">
+            <padding>
+                <Insets bottom="15" left="15" right="15" top="15" />
+            </padding>
+            <children>
+                <Label fx:id="lblTrangChu" onMouseClicked="#handleHomePageClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Trang chủ" />
+                <Label fx:id="lblHoKhau" onMouseClicked="#handleHoKhauClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Hộ khẩu" />
+                <Label fx:id="lblNhanKhau"  style="-fx-font-weight: bold; -fx-text-fill: #2980b9;" text="Nhân khẩu" />
+                <Label fx:id="lblKhoanThu" onMouseClicked="#handleKhoanThuClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Khoản thu" />
+                <Label fx:id="lblNopPhi" onMouseClicked="#handleNopPhiClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Nộp Phí" />
+                <Label fx:id="lblThongKe" onMouseClicked="#handleThongKeClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Thống kê" />
+                <TextField fx:id="txtGlobalSearch" prefHeight="25.0" prefWidth="299.0" promptText="Tìm kiếm...">
+                    <HBox.margin><Insets left="120.0" /></HBox.margin>
+                </TextField>
+
+            </children>
+        </HBox>
+    </top>
+
+    <!-- Center: Danh sách cư dân -->
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets bottom="15" left="15" right="15" top="15" />
+            </padding>
+
+            <!-- Tìm kiếm / Thêm -->
+            <HBox spacing="10">
+                <TextField fx:id="txtSearch" promptText="Tìm kiếm cư dân..." />
+                <Button onAction="#onSearch" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Tìm" />
+                <Button onAction="#onRefresh" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Tải lại" />
+                <Button onAction="#onAdd" style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Thêm mới" />
+            </HBox>
+
+            <!-- Tiêu đề cột -->
+            <TableView fx:id="tableResidents" prefHeight="500" prefWidth="900">
+                <columns>
+                    <TableColumn fx:id="colID" prefWidth="60" text="ID">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="id" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colMaHo" prefWidth="100" text="Mã Hộ">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="maHo" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colHoTen" prefWidth="150" text="Họ Tên">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="hoTen" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colNgaySinh" prefWidth="120" text="Ngày sinh">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="ngaySinh" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colGioiTinh" prefWidth="80" text="Giới tính">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="gioiTinh" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colDanToc" prefWidth="100" text="Dân tộc">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="danToc" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colCCCD" prefWidth="150" text="CCCD">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="cccd" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colNgheNghiep" prefWidth="92.800048828125" text="Nghề nghiệp">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="ngheNghiep" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colAction" prefWidth="95.0" text="Action" />
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="253.0" prefWidth="430.0" style="-fx-background-color: #d3d3d3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.sample.Controller.ThuPhiController">
+
+    <children>
+        <GridPane hgap="10" layoutX="50" layoutY="30" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints halignment="RIGHT" minWidth="100" />
+                <ColumnConstraints minWidth="200" />
+                <ColumnConstraints minWidth="60" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="30.0" />
+                <RowConstraints minHeight="30.0" />
+                <RowConstraints minHeight="30.0" />
+            <RowConstraints />
+            </rowConstraints>
+
+            <!-- Tên khoản thu -->
+            <Label style="-fx-font-weight: bold;" text="Tên khoản thu" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="tenKhoanThuField" promptText="Label" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Button fx:id="chonKhoanThuButton" onAction="#onChonKhoanThuClicked" prefWidth="50" text="Chọn" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+
+
+            <!-- Tên người nộp -->
+            <Label style="-fx-font-weight: bold;" text="Tên người nộp" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="tenNguoiNopField" promptText="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="chonNguoiNopButton" onAction="#onChonNguoiNopClick" prefWidth="50" text="Chọn" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+            <Label style="-fx-font-weight: bold;" text="Số tiền" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="soTienField" promptText="VD: 50000" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <!-- Ngày nộp -->
+            <DatePicker fx:id="ngayNopDatePicker" prefWidth="200" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Ngày nộp" GridPane.rowIndex="3" />
+
+        </GridPane>
+
+        <Button fx:id="thuPhiButton" layoutX="281.0" layoutY="206.0" onAction="#onThuPhiClicked" prefWidth="100" text="Thu phí" />
+      <Button fx:id="quayLaiBtn" onAction="#onQuayLaiClicked" layoutX="95.0" layoutY="206.0" mnemonicParsing="false" text="Quay lại" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.sample.Controller.ThongKeController2">
+
+    <!-- Top navigation bar -->
+    <top>
+        <HBox spacing="20" style="-fx-padding: 15;">
+            <padding>
+                <Insets bottom="15" left="15" right="15" top="15" />
+            </padding>
+            <children>
+                <Label fx:id="lblTrangChu" onMouseClicked="#handleHomePageClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Trang chủ" />
+                <Label fx:id="lblHoKhau" onMouseClicked="#handleHoKhauClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Hộ khẩu" />
+                <Label fx:id="lblNhanKhau" onMouseClicked="#handleNhanKhauClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Nhân khẩu" />
+                <Label fx:id="lblKhoanThu" onMouseClicked="#handleKhoanThuClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Khoản thu" />
+                <Label fx:id="lblNopPhi" onMouseClicked="#handleNopPhiClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Nộp Phí" />
+                <Label fx:id="lblThongKe"  style="-fx-font-weight: bold; -fx-text-fill: #2980b9;" text="Thống kê" />
+                <TextField fx:id="txtGlobalSearch" prefWidth="299.0" promptText="Tìm kiếm...">
+                    <HBox.margin>
+                        <Insets left="120.0" />
+                    </HBox.margin>
+                </TextField>
+            </children>
+        </HBox>
+    </top>
+
+    <!-- Center: Table and controls -->
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="10" BorderPane.alignment="CENTER">
+        <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="THỐNG KÊ CÁC KHOẢN ĐÃ ĐÓNG GÓP" />
+        <TableView fx:id="tableView" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="colStt" prefWidth="54.0" text="STT">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Stt" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colState" prefWidth="75.99999618530273" text="Trạng thái">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="State" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colName" prefWidth="283.2000274658203" text="Tên khoản thu">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colTotalApartment" prefWidth="157.0" text="Số hộ đã đóng">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="TotalApartment" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colTotalFees" prefWidth="186.0" text="Tổng tiền">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="TotalFees" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="colDay" prefWidth="240.7999267578125" text="Ngày thanh toán">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="Day" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" spacing="10"><padding><Insets bottom="10" left="10" right="10" top="10" /> </padding>
+            <Button fx:id="btnPdf" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold;" text="Tạo PDF" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
