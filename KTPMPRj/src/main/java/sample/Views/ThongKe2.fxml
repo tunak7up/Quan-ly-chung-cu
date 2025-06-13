@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="980.0"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="main.java.sample.Controller.ThongKeController2">
+
+    <!-- Top Navigation -->
+    <top>
+        <HBox spacing="0">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15" />
+            </padding>
+            <children>
+                <Label fx:id="lblTrangChu" text="Trang chủ" onMouseClicked="#handleHomePageClick"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;"
+                       HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER">
+                    <font><Font size="24"/></font>
+                </Label>
+                <Label fx:id="lblHoKhau" text="Hộ khẩu" onMouseClicked="#handleHoKhauClick"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;"
+                       HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER">
+                    <font><Font size="24"/></font>
+                </Label>
+                <Label fx:id="lblNhanKhau" text="Nhân khẩu" onMouseClicked="#handleNhanKhauClick"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;"
+                       HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER">
+                    <font><Font size="24"/></font>
+                </Label>
+                <Label fx:id="lblKhoanThu" text="Khoản thu" onMouseClicked="#handleKhoanThuClick"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;"
+                       HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER">
+                    <font><Font size="24"/></font>
+                </Label>
+                <Label fx:id="lblNopPhi" text="Nộp Phí" onMouseClicked="#handleNopPhiClick"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;"
+                       HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER">
+                    <font><Font size="24"/></font>
+                </Label>
+                <Label fx:id="lblThongKe" text="Thống kê"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;"
+                       HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER">
+                    <font><Font size="24"/></font>
+                </Label>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="txtGlobalSearch" promptText="Tìm kiếm..."
+                           style="-fx-font-family: 'Arial', 'Segoe UI', sans-serif; -fx-font-size: 15px;"
+                           maxWidth="300"/>
+            </children>
+        </HBox>
+    </top>
+
+    <!-- Center Section -->
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15" />
+            </padding>
+            <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="THỐNG KÊ CÁC KHOẢN ĐÃ ĐÓNG GÓP" />
+            <TableView fx:id="tableView" prefHeight="500" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colStt" prefWidth="54" text="STT">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="Stt" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colState" prefWidth="76" text="Trạng thái">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="State" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colName" prefWidth="283" text="Tên khoản thu">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="Name" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colTotalApartment" prefWidth="157" text="Số hộ đã đóng">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="TotalApartment" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colTotalFees" prefWidth="186" text="Tổng tiền">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="TotalFees" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colDay" prefWidth="241" text="Ngày thanh toán">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="Day" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

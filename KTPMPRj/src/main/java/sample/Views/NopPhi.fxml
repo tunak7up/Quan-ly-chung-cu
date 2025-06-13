@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="980.0"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="main.java.sample.Controller.NopPhiControlller">
+
+    <!-- Top Navigation -->
+    <top>
+        <HBox spacing="0">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+            <children>
+                <Label fx:id="lblTrangChu" text="Trang chủ" onMouseClicked="#handleHomePageClick"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;"
+                       HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER">
+                    <font><Font size="24"/></font>
+                </Label>
+                <Label fx:id="lblHoKhau" text="Hộ khẩu" onMouseClicked="#handleHoKhauClick"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;"
+                       HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER">
+                    <font><Font size="24"/></font>
+                </Label>
+                <Label fx:id="lblNhanKhau" text="Nhân khẩu" onMouseClicked="#handleNhanKhauClick"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;"
+                       HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER">
+                    <font><Font size="24"/></font>
+                </Label>
+                <Label fx:id="lblKhoanThu" text="Khoản thu" onMouseClicked="#handleKhoanThuClick"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;"
+                       HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER">
+                    <font><Font size="24"/></font>
+                </Label>
+                <Label fx:id="lblNopPhi" text="Nộp Phí"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;"
+                       HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER">
+                    <font><Font size="24"/></font>
+                </Label>
+                <Label fx:id="lblThongKe" text="Thống kê" onMouseClicked="#handleThongKeClick"
+                       style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;"
+                       HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER">
+                    <font><Font size="24"/></font>
+                </Label>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="txtGlobalSearch" promptText="Tìm kiếm..."
+                           style="-fx-font-family: 'Arial', 'Segoe UI', sans-serif; -fx-font-size: 15px;"
+                           maxWidth="300"/>
+            </children>
+        </HBox>
+    </top>
+
+    <!-- Center Section -->
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <HBox spacing="10">
+                <TextField fx:id="txtSearch" promptText="Tìm kiếm..."/>
+                <Button onAction="#onSearch"
+                        style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
+                        text="Tìm"/>
+                <Button onAction="#onRefresh"
+                        style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
+                        text="Tải lại"/>
+                <Button fx:id="btnNopPhi" onAction="#onAdd"
+                        style="-fx-background-color: #e67e22; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;"
+                        text="Nộp phí"/>
+            </HBox>
+
+            <TableView fx:id="tableNopTien" prefHeight="500" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colSoHoKhau" prefWidth="120" text="Số hộ khẩu">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="sohokhau"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colKhoanThu" prefWidth="200" text="Khoản Thu">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="khoanthu_id"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colNgayNop" prefWidth="150" text="Ngày Nộp">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="ngaynop"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colNguoiNop" prefWidth="180" text="Người Nộp">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="nguoinop"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="colSoTien" prefWidth="100" text="Số Tiền">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="sotien"/>
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

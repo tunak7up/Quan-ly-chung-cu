@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="rootPane" prefHeight="600" prefWidth="900" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.sample.Controller.HomePageController">
+
+   <top>
+      <HBox spacing="0">
+         <padding>
+            <Insets bottom="15" left="15" right="15" top="15" />
+         </padding>
+         <children>
+            <Label fx:id="lblTrangChu" alignment="CENTER" maxWidth="Infinity" style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;" text="Trang chủ" HBox.hgrow="ALWAYS">
+               <font><Font size="24" /></font>
+            </Label>
+
+            <Label fx:id="lblHoKhau" alignment="CENTER" maxWidth="Infinity" onMouseClicked="#handleHoKhauClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;" text="Hộ khẩu" HBox.hgrow="ALWAYS">
+               <font><Font size="24" /></font>
+            </Label>
+
+            <Label fx:id="lblNhanKhau" alignment="CENTER" maxWidth="Infinity" onMouseClicked="#handleNhanKhauClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;" text="Nhân khẩu" HBox.hgrow="ALWAYS">
+               <font><Font size="24" /></font>
+            </Label>
+
+            <Label fx:id="lblThongKe" alignment="CENTER" maxWidth="Infinity" onMouseClicked="#handleThongKeClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;" text="Thống kê" HBox.hgrow="ALWAYS">
+               <font><Font size="24" /></font>
+            </Label>
+
+            <Label fx:id="lblTinhTrangLuuTru" alignment="CENTER" maxWidth="Infinity" onMouseClicked="#handleTinhTrangClick" style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-family: 'Arial', 'Segoe UI', sans-serif;" text="Tình trạng lưu tr" HBox.hgrow="ALWAYS">
+               <font><Font size="24" /></font>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <TextField fx:id="txtGlobalSearch" maxWidth="300" promptText="Tìm kiếm..." style="-fx-font-family: 'Arial', 'Segoe UI', sans-serif; -fx-font-size: 15px;" />
+         </children>
+      </HBox>
+   </top>
+
+   <center>
+      <VBox spacing="20">
+         <padding>
+            <Insets bottom="15" left="15" right="15" top="15" />
+         </padding>
+
+         <HBox spacing="20">
+            <VBox maxWidth="Infinity" spacing="5" style="-fx-border-color: black; -fx-border-width: 1;" HBox.hgrow="ALWAYS">
+               <padding>
+                  <Insets bottom="10" left="10" right="10" top="10" />
+               </padding>
+               <Label text="Hộ Khẩu">
+                  <font><Font size="20" /></font>
+               </Label>
+               <Label fx:id="lblTongSoHoKhau" text="Tổng số: 0">
+                  <font><Font size="16" /></font>
+               </Label>
+               <Button fx:id="btnHoKhau" onMouseClicked="#handleHoKhauClickBtn" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-font-family: 'Arial', 'Segoe UI', sans-serif; -fx-font-size: 15px;" text="Xem tất cả">
+                  <font><Font size="20" /></font>
+               </Button>
+               <VBox.vgrow>
+                  <Priority fx:value="ALWAYS" />
+               </VBox.vgrow>
+            </VBox>
+
+            <VBox maxWidth="Infinity" spacing="5" style="-fx-border-color: black; -fx-border-width: 1;" HBox.hgrow="ALWAYS">
+               <padding>
+                  <Insets bottom="10" left="10" right="10" top="10" />
+               </padding>
+               <Label text="Nhân Khẩu">
+                  <font><Font size="20" /></font>
+               </Label>
+               <Label fx:id="lblTongSoNhanKhau" text="Tổng số: 0">
+                  <font><Font size="16" /></font>
+               </Label>
+               <Button fx:id="btnNhanKhau" onMouseClicked="#handleNhanKhauClickBtn" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-font-family: 'Arial', 'Segoe UI', sans-serif; -fx-font-size: 15px;" text="Xem tất cả">
+                  <font><Font size="20" /></font>
+               </Button>
+               <VBox.vgrow>
+                  <Priority fx:value="ALWAYS" />
+               </VBox.vgrow>
+            </VBox>
+         </HBox>
+
+         <HBox spacing="20">
+            <LineChart fx:id="lineChartNhanKhau" prefHeight="319.0" prefWidth="876.0" title="Thống kê nhân khẩu" VBox.vgrow="ALWAYS">
+               <xAxis>
+                  <CategoryAxis label="Hộ Khẩu" fx:id="xAxis" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis fx:id="yAxis" label="Số người" />
+               </yAxis>
+            </LineChart>
+         </HBox>
+      </VBox>
+   </center>
+
+   <bottom>
+      <HBox alignment="CENTER" spacing="15">
+         <padding>
+            <Insets bottom="15" left="15" right="15" top="15" />
+         </padding>
+         <Button fx:id="btnDSNopPhi" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-font-family: 'Arial', 'Segoe UI', sans-serif; -fx-font-size: 15px;" text="Danh sách nộp phí" HBox.hgrow="SOMETIMES" />
+         <Button fx:id="btnNopPhi" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-font-family: 'Arial', 'Segoe UI', sans-serif; -fx-font-size: 15px;" text="Nộp phí" HBox.hgrow="SOMETIMES" />
+      </HBox>
+   </bottom>
+</BorderPane>
